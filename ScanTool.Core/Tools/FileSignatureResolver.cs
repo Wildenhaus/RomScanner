@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -39,6 +40,33 @@ namespace ScanTool.Core.Tools
     #endregion
 
     #region Public Methods
+
+    /// <summary>
+    ///   Attempts to resolve a matching file signature given a sequence of bytes.
+    /// </summary>
+    /// <param name="stream">
+    ///   The file stream.
+    /// </param>
+    /// <param name="signature">
+    ///   The output matching signature, if one is found.
+    /// </param>
+    /// <returns>
+    ///   True if a match has been found.
+    /// </returns>
+    public static bool TryResolveFileSignature( Stream stream, out FileSignature signature )
+    {
+      signature = default;
+
+      if( !stream.CanRead )
+        return false;
+
+      stream.Seek( 0, SeekOrigin.Begin );
+
+      var buffer = new byte[ _maxSignatureLength ];
+      var bytesRead = stream.Read( buffer );
+
+      return TryResolveFileSignature( buffer.AsSpan( 0, bytesRead ), out signature );
+    }
 
     /// <summary>
     ///   Attempts to resolve a matching file signature given a sequence of bytes.
