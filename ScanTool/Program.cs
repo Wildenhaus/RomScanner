@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using ScanTool.Core.Enumerations;
-using ScanTool.Core.Tools;
+﻿using System.Threading.Tasks;
 
 namespace ScanTool
 {

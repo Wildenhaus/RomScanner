@@ -7,7 +7,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ScanTool.Core\ScanTool.Core.csproj" />
-    <ProjectReference Include="..\ScanTool.NintendoWii\ScanTool.NintendoWii.csproj" />
   </ItemGroup>
 
 </Project>
