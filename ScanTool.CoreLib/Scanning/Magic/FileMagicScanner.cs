@@ -32,7 +32,7 @@ namespace ScanTool.CoreLib.Scanning
     /// </summary>
     static FileMagicScanner()
     {
-      _signatureLookup = GetDefinedFileSignatures().ToDictionary( x => x.Magic, x => x );
+      _signatureLookup = GetFileMagicDefinitions().ToDictionary( x => x.Magic, x => x );
       _maxSignatureLength = _signatureLookup.Keys.Max( x => x.Length );
     }
 
@@ -52,7 +52,7 @@ namespace ScanTool.CoreLib.Scanning
     /// <returns>
     ///   True if a match has been found.
     /// </returns>
-    public static bool TryResolveFileSignature( Stream stream, out FileMagic signature )
+    public static bool TryResolveFileMagic( Stream stream, out FileMagic signature )
     {
       signature = default;
 
@@ -121,7 +121,7 @@ namespace ScanTool.CoreLib.Scanning
     /// <summary>
     ///   Gets all of the FileSignature definitions from <see cref="FileMagicDefinitions" />.
     /// </summary>
-    private static IEnumerable<FileMagic> GetDefinedFileSignatures()
+    private static IEnumerable<FileMagic> GetFileMagicDefinitions()
     {
       return typeof( FileMagicDefinitions )
         .GetFields( BindingFlags.Public | BindingFlags.Static )
