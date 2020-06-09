@@ -1,12 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ScanTool.CoreLib\ScanTool.CoreLib.csproj" />
+    <PackageReference Include="Quamotion.DiscUtils.Iso9660" Version="0.15.4" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,4 @@
-﻿namespace ScanTool.Core.Enumerations
+﻿namespace ScanTool.CoreLib.Scanning
 {
 
   public enum FileType

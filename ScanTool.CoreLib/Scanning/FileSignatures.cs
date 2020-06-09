@@ -1,31 +1,5 @@
-﻿using ScanTool.Core.Enumerations;
-
-namespace ScanTool.Core.Models
+﻿namespace ScanTool.CoreLib.Scanning
 {
-
-  public readonly struct FileSignature
-  {
-
-    #region Data Members
-
-    public readonly FileType Type;
-    public readonly string Description;
-    public readonly string Signature;
-
-    #endregion
-
-    #region Constructor
-
-    public FileSignature( FileType type, string description, string signature )
-    {
-      Type = type;
-      Description = description;
-      Signature = signature;
-    }
-
-    #endregion
-
-  }
 
   public static class FileSignatures
   {
@@ -60,14 +34,14 @@ namespace ScanTool.Core.Models
     public static readonly FileSignature Zip          = new FileSignature( FileType.Archive    , "Zip"                     , "\x50\x4B\x03\x04"                                 );
     public static readonly FileSignature ZipEmpty     = new FileSignature( FileType.Archive    , "Zip, Empty"              , "\x50\x4B\x05\x06"                                 );
     public static readonly FileSignature ZipSpanned   = new FileSignature( FileType.Archive    , "Zip, Spanned"            , "\x50\x4B\x07\x08"                                 );
-    public static readonly FileSignature Zlib_00      = new FileSignature( FileType.Archive    , "Zlib"                    , "\x78\x01"                                         );
-    public static readonly FileSignature Zlib_01      = new FileSignature( FileType.Archive    , "Zlib"                    , "\x78\x5E"                                         );
-    public static readonly FileSignature Zlib_02      = new FileSignature( FileType.Archive    , "Zlib"                    , "\x78\x9C"                                         );
-    public static readonly FileSignature Zlib_03      = new FileSignature( FileType.Archive    , "Zlib"                    , "\x78\xDA"                                         );
-    public static readonly FileSignature Zlib_04      = new FileSignature( FileType.Archive    , "Zlib"                    , "\x78\x20"                                         );
-    public static readonly FileSignature Zlib_05      = new FileSignature( FileType.Archive    , "Zlib"                    , "\x78\x7D"                                         );
-    public static readonly FileSignature Zlib_06      = new FileSignature( FileType.Archive    , "Zlib"                    , "\x78\xBB"                                         );
-    public static readonly FileSignature Zlib_07      = new FileSignature( FileType.Archive    , "Zlib"                    , "\x78\xF9"                                         );
+    public static readonly FileSignature Zlib_00      = new FileSignature( FileType.Archive    , "Zlib 00"                 , "\x78\x01"                                         );
+    public static readonly FileSignature Zlib_01      = new FileSignature( FileType.Archive    , "Zlib 01"                 , "\x78\x5E"                                         );
+    public static readonly FileSignature Zlib_02      = new FileSignature( FileType.Archive    , "Zlib 02"                 , "\x78\x9C"                                         );
+    public static readonly FileSignature Zlib_03      = new FileSignature( FileType.Archive    , "Zlib 03"                 , "\x78\xDA"                                         );
+    public static readonly FileSignature Zlib_04      = new FileSignature( FileType.Archive    , "Zlib 04"                 , "\x78\x20"                                         );
+    public static readonly FileSignature Zlib_05      = new FileSignature( FileType.Archive    , "Zlib 05"                 , "\x78\x7D"                                         );
+    public static readonly FileSignature Zlib_06      = new FileSignature( FileType.Archive    , "Zlib 06"                 , "\x78\xBB"                                         );
+    public static readonly FileSignature Zlib_07      = new FileSignature( FileType.Archive    , "Zlib 07"                 , "\x78\xF9"                                         );
     public static readonly FileSignature Zst          = new FileSignature( FileType.Archive    , "Zst"                     , "\x28\xB5\x2F\xFD"                                 );
     
     //=========================================================================

@@ -3,13 +3,11 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using ScanTool.Core.Enumerations;
-using ScanTool.Core.Models;
 
-namespace ScanTool.Core.Tools
+namespace ScanTool.CoreLib.Hashing
 {
 
-  public static class HashTool
+  public static class FileHasher
   {
 
     #region Constants

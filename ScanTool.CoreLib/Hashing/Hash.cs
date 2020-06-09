@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
-using ScanTool.Core.Enumerations;
 
-namespace ScanTool.Core.Models
+namespace ScanTool.CoreLib.Hashing
 {
 
   public readonly struct Hash : IEquatable<Hash>, IEquatable<string>
