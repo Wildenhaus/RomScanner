@@ -1,7 +1,9 @@
-﻿namespace ScanTool.CoreLib.Scanning
+﻿using System;
+
+namespace ScanTool.CoreLib.Scanning
 {
 
-  public readonly struct FileMagic
+  public readonly struct FileMagic : IEquatable<FileMagic>
   {
 
     #region Data Members
@@ -20,6 +22,24 @@
       Description = description;
       Magic = signature;
     }
+
+    #endregion
+
+    #region Operators
+
+    public static bool operator==( FileMagic left, FileMagic right )
+      => left.Equals( right );
+
+    public static bool operator!=( FileMagic left, FileMagic right )
+      => !left.Equals( right );
+
+    #endregion
+
+    #region IEquatable Methods
+
+    public bool Equals( FileMagic other )
+      => Type == other.Type 
+      && Description == other.Description;
 
     #endregion
 
