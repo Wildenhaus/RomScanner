@@ -12,9 +12,8 @@ namespace ScanTool.Core.VFS.Devices
     #region Data Members
 
     private readonly string _isoFilePath;
-
-    private FileStream _isoFileStream;
-    private CDReader _isoReader;
+    private readonly Stream _isoFileStream;
+    private readonly CDReader _isoReader;
 
     #endregion
 
@@ -23,6 +22,14 @@ namespace ScanTool.Core.VFS.Devices
     public IsoDevice( string isoFilePath )
     {
       _isoFilePath = isoFilePath;
+      _isoFileStream = File.OpenRead( isoFilePath );
+      _isoReader = new CDReader( _isoFileStream, true );
+    }
+
+    public IsoDevice( Stream isoFileStream )
+    {
+      _isoFileStream = isoFileStream;
+      _isoReader = new CDReader( _isoFileStream, true );
     }
 
     #endregion
@@ -34,18 +41,6 @@ namespace ScanTool.Core.VFS.Devices
       return new IsoDirectory( this, _isoReader.Root );
     }
 
-    public override IEnumerable<FsFile> GetFiles()
-    {
-      foreach( var file in _isoReader.Root.GetFiles() )
-        yield return new IsoFile( this, file );
-    }
-
-    public override IEnumerable<FsFile> GetFiles( string pattern )
-    {
-      foreach( var file in _isoReader.Root.GetFiles( pattern ) )
-        yield return new IsoFile( this, file );
-    }
-
     public override IEnumerable<FsFile> GetFiles( string pattern, SearchOption opts )
     {
       foreach( var file in _isoReader.Root.GetFiles( pattern, opts ) )
@@ -55,12 +50,6 @@ namespace ScanTool.Core.VFS.Devices
     #endregion
 
     #region Overrides
-
-    protected override void OnInitializing()
-    {
-      _isoFileStream = File.OpenRead( _isoFilePath );
-      _isoReader = new CDReader( _isoFileStream, true );
-    }
 
     protected override void OnDisposing( bool disposing )
     {
@@ -102,34 +91,10 @@ namespace ScanTool.Core.VFS.Devices
 
       #region Public Methods
 
-      public override IEnumerable<FsDirectory> GetDirectories()
-      {
-        foreach( var childDirectory in _directory.GetDirectories() )
-          yield return new IsoDirectory( _device, childDirectory );
-      }
-
-      public override IEnumerable<FsDirectory> GetDirectories( string pattern )
-      {
-        foreach( var childDirectory in _directory.GetDirectories( pattern ) )
-          yield return new IsoDirectory( _device, childDirectory );
-      }
-
       public override IEnumerable<FsDirectory> GetDirectories( string pattern, SearchOption opts )
       {
         foreach( var childDirectory in _directory.GetDirectories( pattern, opts ) )
           yield return new IsoDirectory( _device, childDirectory );
-      }
-
-      public override IEnumerable<FsFile> GetFiles()
-      {
-        foreach( var file in _directory.GetFiles() )
-          yield return new IsoFile( _device, file );
-      }
-
-      public override IEnumerable<FsFile> GetFiles( string pattern )
-      {
-        foreach( var file in _directory.GetFiles( pattern ) )
-          yield return new IsoFile( _device, file );
       }
 
       public override IEnumerable<FsFile> GetFiles( string pattern, SearchOption opts )
