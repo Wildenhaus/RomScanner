@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace ScanTool.Core.VFS
+namespace ScanTool.CoreLib.VFS
 {
 
   public abstract class VfsFile : VfsEntry

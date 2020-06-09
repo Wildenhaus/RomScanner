@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using DiscUtils;
 using DiscUtils.Iso9660;
-using ScanTool.Core.VFS;
+using ScanTool.CoreLib.VFS;
 
 namespace ScanTool.CoreLib.VFS.Devices
 {

@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using ScanTool.CoreLib.Extensions;
 
-namespace ScanTool.Core.VFS
+namespace ScanTool.CoreLib.VFS
 {
 
   public abstract class VfsEntry

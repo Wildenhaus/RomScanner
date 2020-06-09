@@ -1,4 +1,4 @@
-﻿namespace ScanTool.Core.VFS
+﻿namespace ScanTool.CoreLib.VFS
 {
 
   public enum VfsEntryType : byte

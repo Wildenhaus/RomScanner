@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
-using ScanTool.Core.VFS;
+using ScanTool.CoreLib.VFS;
 
 namespace ScanTool.CoreLib.VFS.Devices
 {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ScanTool.Core.VFS
+namespace ScanTool.CoreLib.VFS
 {
 
   public abstract class VfsDevice : IDisposable
