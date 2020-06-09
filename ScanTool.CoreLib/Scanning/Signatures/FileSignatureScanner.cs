@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Buffers;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace ScanTool.CoreLib.Scanning.Signatures
   public static class FileSignatureScanner
   {
 
-    const int BUFFER_SIZE = 1024 * 1024 * 1024;
+    const int BUFFER_SIZE = 1024 * 1024;
 
     #region Data Members
 
@@ -38,12 +39,14 @@ namespace ScanTool.CoreLib.Scanning.Signatures
 
       long offset = 0;
       int bytesRead = 0;
-      var buffer = new byte[ BUFFER_SIZE ];
+
+      var buffer = ArrayPool<byte>.Shared.Rent( BUFFER_SIZE );
       while( stream.Position < stream.Length )
       {
         bytesRead = stream.Read( buffer, 0, BUFFER_SIZE );
         if( bytesRead <= 0 )
           break;
+
 
         var results = Pattern.Scan( buffer, signatures );
         foreach( var result in results )
@@ -60,6 +63,7 @@ namespace ScanTool.CoreLib.Scanning.Signatures
         stream.Seek( 0 - maxLen, SeekOrigin.Current );
         offset = stream.Position;
       }
+      ArrayPool<byte>.Shared.Return( buffer );
 
       return matches;
     }
