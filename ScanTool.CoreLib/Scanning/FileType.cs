@@ -3,7 +3,7 @@
 
   public enum FileType
   {
-    Other = 0x00,
+    Unknown = 0x00,
 
     Archive,
     Development,

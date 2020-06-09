@@ -8,7 +8,7 @@ using System.Text;
 namespace ScanTool.CoreLib.Scanning
 {
 
-  public static class FileSignatureResolver
+  public static class FileMagicScanner
   {
 
     #region Data Members
@@ -21,7 +21,7 @@ namespace ScanTool.CoreLib.Scanning
     /// <summary>
     ///   A dictionary for looking up file signatures.
     /// </summary>
-    private static readonly Dictionary<string, FileSignature> _signatureLookup;
+    private static readonly Dictionary<string, FileMagic> _signatureLookup;
 
     #endregion
 
@@ -30,9 +30,9 @@ namespace ScanTool.CoreLib.Scanning
     /// <summary>
     ///   Initializes the signature dictionary and max signature length.
     /// </summary>
-    static FileSignatureResolver()
+    static FileMagicScanner()
     {
-      _signatureLookup = GetDefinedFileSignatures().ToDictionary( x => x.Signature, x => x );
+      _signatureLookup = GetDefinedFileSignatures().ToDictionary( x => x.Magic, x => x );
       _maxSignatureLength = _signatureLookup.Keys.Max( x => x.Length );
     }
 
@@ -52,7 +52,7 @@ namespace ScanTool.CoreLib.Scanning
     /// <returns>
     ///   True if a match has been found.
     /// </returns>
-    public static bool TryResolveFileSignature( Stream stream, out FileSignature signature )
+    public static bool TryResolveFileSignature( Stream stream, out FileMagic signature )
     {
       signature = default;
 
@@ -79,7 +79,7 @@ namespace ScanTool.CoreLib.Scanning
     /// <returns>
     ///   True if a match has been found.
     /// </returns>
-    public static bool TryResolveFileSignature( Span<byte> data, out FileSignature signature )
+    public static bool TryResolveFileSignature( Span<byte> data, out FileMagic signature )
     {
       // Attempt to find the longest matching file signature
       var startLength = Math.Min( data.Length, _maxSignatureLength );
@@ -119,14 +119,14 @@ namespace ScanTool.CoreLib.Scanning
     }
 
     /// <summary>
-    ///   Gets all of the FileSignature definitions from <see cref="FileSignatures" />.
+    ///   Gets all of the FileSignature definitions from <see cref="FileMagicDefinitions" />.
     /// </summary>
-    private static IEnumerable<FileSignature> GetDefinedFileSignatures()
+    private static IEnumerable<FileMagic> GetDefinedFileSignatures()
     {
-      return typeof( FileSignatures )
+      return typeof( FileMagicDefinitions )
         .GetFields( BindingFlags.Public | BindingFlags.Static )
-        .Where( x => x.FieldType == typeof( FileSignature ) )
-        .Select( x => ( FileSignature ) x.GetValue( null ) );
+        .Where( x => x.FieldType == typeof( FileMagic ) )
+        .Select( x => ( FileMagic ) x.GetValue( null ) );
     }
 
     #endregion
