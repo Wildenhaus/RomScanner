@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ScanTool.CoreLib.Extensions
+namespace ScanTool.CoreLib
 {
 
   public static class LinqExtensions
