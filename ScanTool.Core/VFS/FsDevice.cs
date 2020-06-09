@@ -38,9 +38,7 @@ namespace ScanTool.Core.VFS
 
     public abstract FsDirectory GetRootDirectory();
 
-    public abstract IEnumerable<FsFile> GetFiles();
-    public abstract IEnumerable<FsFile> GetFiles( string pattern );
-    public abstract IEnumerable<FsFile> GetFiles( string pattern, SearchOption opts );
+    public abstract IEnumerable<FsFile> GetFiles( string pattern = "*.*", SearchOption opts = SearchOption.TopDirectoryOnly );
 
     #endregion
 
