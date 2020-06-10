@@ -14,12 +14,12 @@ namespace ScanTool.CoreLib.Scanning
     #region Data Members
 
     /// <summary>
-    ///   The length (in bytes) of the longest file signature.
+    ///   The length (in bytes) of the longest magic number signature.
     /// </summary>
     private static readonly int _maxSignatureLength;
 
     /// <summary>
-    ///   A dictionary for looking up file signatures.
+    ///   A dictionary for looking up magic numbers.
     /// </summary>
     private static readonly Dictionary<string, FileMagic> _signatureLookup;
 
@@ -28,7 +28,7 @@ namespace ScanTool.CoreLib.Scanning
     #region Constructor
 
     /// <summary>
-    ///   Initializes the signature dictionary and max signature length.
+    ///   Initializes the magic number dictionary and max signature length.
     /// </summary>
     static FileMagicScanner()
     {
@@ -41,20 +41,20 @@ namespace ScanTool.CoreLib.Scanning
     #region Public Methods
 
     /// <summary>
-    ///   Attempts to resolve a matching file signature given a sequence of bytes.
+    ///   Attempts to resolve a matching magic number given a sequence of bytes.
     /// </summary>
     /// <param name="stream">
     ///   The file stream.
     /// </param>
-    /// <param name="signature">
-    ///   The output matching signature, if one is found.
+    /// <param name="magic">
+    ///   The output matching magic number, if one is found.
     /// </param>
     /// <returns>
     ///   True if a match has been found.
     /// </returns>
-    public static bool TryResolveFileMagic( Stream stream, out FileMagic signature )
+    public static bool TryResolveFileMagic( Stream stream, out FileMagic magic )
     {
-      signature = default;
+      magic = default;
 
       if( !stream.CanRead )
         return false;
@@ -64,22 +64,22 @@ namespace ScanTool.CoreLib.Scanning
       var buffer = new byte[ _maxSignatureLength ];
       var bytesRead = stream.Read( buffer );
 
-      return TryResolveFileSignature( buffer.AsSpan( 0, bytesRead ), out signature );
+      return TryResolveFileMagic( buffer.AsSpan( 0, bytesRead ), out magic );
     }
 
     /// <summary>
-    ///   Attempts to resolve a matching file signature given a sequence of bytes.
+    ///   Attempts to resolve a matching magic number given a sequence of bytes.
     /// </summary>
     /// <param name="data">
-    ///   A sequence of bytes to resolve a file signature from.
+    ///   A sequence of bytes to resolve a file magic number from.
     /// </param>
-    /// <param name="signature">
-    ///   The output matching signature, if one is found.
+    /// <param name="magic">
+    ///   The output matching magic, if one is found.
     /// </param>
     /// <returns>
     ///   True if a match has been found.
     /// </returns>
-    public static bool TryResolveFileSignature( Span<byte> data, out FileMagic signature )
+    public static bool TryResolveFileMagic( Span<byte> data, out FileMagic magic )
     {
       // Attempt to find the longest matching file signature
       var startLength = Math.Min( data.Length, _maxSignatureLength );
@@ -88,11 +88,11 @@ namespace ScanTool.CoreLib.Scanning
         var chunk = data.Slice( 0, i );
         var chunkStr = ConvertBytesToLookupString( chunk );
 
-        if( _signatureLookup.TryGetValue( chunkStr, out signature ) )
+        if( _signatureLookup.TryGetValue( chunkStr, out magic ) )
           return true;
       }
 
-      signature = default;
+      magic = default;
       return false;
     }
 
@@ -107,7 +107,7 @@ namespace ScanTool.CoreLib.Scanning
     ///   A sequence of bytes to convert into a lookup string.
     /// </param>
     /// <returns>
-    ///   A lookup string for use with the signature dictionary..
+    ///   A lookup string for use with the signature dictionary.
     /// </returns>
     private static string ConvertBytesToLookupString( Span<byte> data )
     {
