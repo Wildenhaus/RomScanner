@@ -130,6 +130,8 @@ namespace ScanTool.CoreLib.VFS.Devices
         : base( SanitizeFileName( file.Name ), device, parent )
       {
         _file = file;
+
+        Size = file.Length;
       }
 
       #endregion
