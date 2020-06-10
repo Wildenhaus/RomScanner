@@ -63,7 +63,7 @@ namespace ScanTool.CoreLib.Scanning.Signatures
         stream.Seek( 0 - maxLen, SeekOrigin.Current );
         offset = stream.Position;
       }
-      ArrayPool<byte>.Shared.Return( buffer );
+      ArrayPool<byte>.Shared.Return( buffer, true );
 
       return matches;
     }
