@@ -3,7 +3,7 @@
 namespace ScanTool.CoreLib.Scanning
 {
 
-  public readonly struct FileMagic : IEquatable<FileMagic>
+  public readonly partial struct FileMagic : IEquatable<FileMagic>
   {
 
     #region Data Members

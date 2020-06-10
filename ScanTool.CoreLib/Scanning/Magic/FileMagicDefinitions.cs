@@ -1,7 +1,7 @@
 ﻿namespace ScanTool.CoreLib.Scanning
 {
 
-  public static class FileMagicDefinitions
+  public readonly partial struct FileMagic
   {
 
     //=========================================================================

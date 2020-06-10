@@ -59,8 +59,6 @@ namespace ScanTool.CoreLib.Scanning
       if( !stream.CanRead )
         return false;
 
-      stream.Seek( 0, SeekOrigin.Begin );
-
       var buffer = new byte[ _maxSignatureLength ];
       var bytesRead = stream.Read( buffer );
 
@@ -123,7 +121,7 @@ namespace ScanTool.CoreLib.Scanning
     /// </summary>
     private static IEnumerable<FileMagic> GetFileMagicDefinitions()
     {
-      return typeof( FileMagicDefinitions )
+      return typeof( FileMagic )
         .GetFields( BindingFlags.Public | BindingFlags.Static )
         .Where( x => x.FieldType == typeof( FileMagic ) )
         .Select( x => ( FileMagic ) x.GetValue( null ) );
