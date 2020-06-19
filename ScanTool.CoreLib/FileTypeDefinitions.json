@@ -402,17 +402,6 @@
     "Extensions": [ ".exe" ]
   },
   {
-    "Name": "ELF Executable",
-    "Category": "Executable",
-    "Signatures": [
-      {
-        "Type": "Magic",
-        "Pattern": "7F 45 4C 46"
-      }
-    ],
-    "Extensions": [ ".elf" ]
-  },
-  {
     "Name": "NES ROM File",
     "Category": "Executable",
     "Signatures": [

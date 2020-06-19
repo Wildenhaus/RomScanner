@@ -122,6 +122,21 @@
 
     #endregion
 
+    #region Executable Definitions
+
+    public static readonly FileType ELF = Create
+    (
+      name: "ELF Executable",
+      category: FileCategory.Executable,
+      signatures: new[]
+      {
+        Signature.Magic( "7F 45 4C 46" )
+      },
+      extensions: new [] { ".elf" }
+    );
+
+    #endregion
+
   }
 
 }
