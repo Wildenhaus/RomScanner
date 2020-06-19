@@ -1,4 +1,4 @@
-﻿namespace ScanTool.CoreLib.Hashing
+﻿namespace ScanTool.CoreLib.Data
 {
 
   public enum HashType : byte

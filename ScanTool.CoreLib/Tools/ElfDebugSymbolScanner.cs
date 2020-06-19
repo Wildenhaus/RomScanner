@@ -6,20 +6,22 @@ namespace ScanTool.CoreLib.Scanning.Symbols
   public static class ElfDebugSymbolScanner
   {
 
-    public static bool HasDebugSymbols( Stream stream )
+    public static uint GetDebugSymbolCount( Stream stream )
     {
       stream.Seek( 0, SeekOrigin.Begin );
 
-      using( var reader = new BigEndianBinaryReader( stream ) )
+      using( var reader = new BinaryReader( stream ) )
       {
         // Read e_shoff
         stream.Seek( 0x20, SeekOrigin.Begin );
-        var shoff = reader.ReadUInt16();
+        var shoff = reader.ReadUInt32();
 
         // Read e_shentsize and e_shnum
         stream.Seek( 0x2E, SeekOrigin.Begin );
         var shentsize = reader.ReadUInt16();
         var shnum = reader.ReadUInt16();
+
+        uint symbolCount = 0;
 
         for( var i = 0; i < shnum; i++ )
         {
@@ -33,13 +35,21 @@ namespace ScanTool.CoreLib.Scanning.Symbols
           var shtype = reader.ReadUInt32(); // SecHdr + 0x4
 
           if( shtype == 2 ) // SHT_SYMTAB
-            return true;
+          {
+            // Seek to section header i, plus the offset of sh_size (0x18)
+            stream.Seek( sectionOffset + 0x14, SeekOrigin.Begin );
+
+            // Read sh_size
+            var shsize = reader.ReadUInt32();
+
+            // .symtab size divided by sizeof(Elf32_Sym)
+            symbolCount += ( shsize / 0x10 );
+          }
         }
 
+        return symbolCount;
       }
 
-      // ELF does not have debug symbols
-      return false;
     }
 
   }
