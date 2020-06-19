@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text.Json;
 
 namespace ScanTool.CoreLib.Data
@@ -59,6 +60,14 @@ namespace ScanTool.CoreLib.Data
 
     #region Private Methods
 
+    private static IEnumerable<FileType> GetBuiltInFileTypeDefinitions()
+    {
+      return typeof( FileType )
+        .GetFields( BindingFlags.Public | BindingFlags.Static )
+        .Where( x => x.FieldType == typeof( FileType ) )
+        .Select( x => ( FileType ) x.GetValue( null ) );
+    }
+
     private static void LoadFileTypeDefinitions()
     {
       if( !File.Exists( FILENAME_FILE_TYPE_DEFINITIONS ) )
@@ -72,6 +81,9 @@ namespace ScanTool.CoreLib.Data
       } );
 
       foreach( var definition in definitions )
+        RegisterFileTypeDefinition( definition );
+
+      foreach( var definition in GetBuiltInFileTypeDefinitions() )
         RegisterFileTypeDefinition( definition );
     }
 

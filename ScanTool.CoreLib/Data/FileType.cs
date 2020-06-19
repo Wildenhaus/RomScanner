@@ -10,7 +10,7 @@ namespace ScanTool.CoreLib.Data
 {
 
   [JsonConverter( typeof( FileTypeJsonConverter ) )]
-  public readonly struct FileType : IEquatable<FileType>
+  public readonly partial struct FileType : IEquatable<FileType>
   {
 
     #region Data Members

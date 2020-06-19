@@ -3,17 +3,6 @@
    **==============================[ Archives ]==============================**
    ****************************************************************************/
   {
-    "Name": "7-zip Compressed Archive",
-    "Category": "Archive",
-    "Signatures": [
-      {
-        "Type": "Magic",
-        "Pattern": "37 7A BC AF 27 1C"
-      }
-    ],
-    "Extensions": [ ".7z" ]
-  },
-  {
     "Name": "Amiga Backup Archive",
     "Category": "Archive",
     "Signatures": [
@@ -23,28 +12,6 @@
       }
     ],
     "Extensions": [ ".bac" ]
-  },
-  {
-    "Name": "Apple Disk Image (DMG)",
-    "Category": "Archive",
-    "Signatures": [
-      {
-        "Type": "Magic",
-        "Pattern": "78 01 73 0D 62 62 60"
-      }
-    ],
-    "Extensions": [ ".dmg" ]
-  },
-  {
-    "Name": "Bzip2 Compressed Archive",
-    "Category": "Archive",
-    "Signatures": [
-      {
-        "Type": "Magic",
-        "Pattern": "42 5A 68"
-      }
-    ],
-    "Extensions": [ ".bz2" ]
   },
   {
     "Name": "Microsoft Cabinet File",
@@ -69,39 +36,6 @@
     "Extensions": [ ".deb" ]
   },
   {
-    "Name": "Gzip Compressed Archive",
-    "Category": "Archive",
-    "Signatures": [
-      {
-        "Type": "Magic",
-        "Pattern": "1F 8B"
-      }
-    ],
-    "Extensions": [ ".gz", ".tar.gz" ]
-  },
-  {
-    "Name": "ISO9660 CD/DVD Image",
-    "Category": "Archive",
-    "Signatures": [
-      {
-        "Type": "Magic",
-        "Pattern": "43 44 30 30 31"
-      }
-    ],
-    "Extensions": [ ".iso" ]
-  },
-  {
-    "Name": "LZ4 Compressed Archive",
-    "Category": "Archive",
-    "Signatures": [
-      {
-        "Type": "Magic",
-        "Pattern": "04 22 4D 18"
-      }
-    ],
-    "Extensions": [ ".lz4" ]
-  },
-  {
     "Name": "LZFSE Compressed Archive",
     "Category": "Archive",
     "Signatures": [
@@ -111,17 +45,6 @@
       }
     ],
     "Extensions": [ ".lzfse" ]
-  },
-  {
-    "Name": "LZH Compressed Archive",
-    "Category": "Archive",
-    "Signatures": [
-      {
-        "Type": "Magic",
-        "Pattern": "1F A0"
-      }
-    ],
-    "Extensions": [ ".lzh", ".z", ".tar.z" ]
   },
   {
     "Name": "LZip Compressed Archive",
@@ -179,23 +102,6 @@
     "Extensions": [ ".oar" ]
   },
   {
-    "Name": "WinRAR Compressed Archive",
-    "Category": "Archive",
-    "Signatures": [
-      {
-        "Type": "Magic",
-        "Pattern": "52 61 72 21 1A 07 00",
-        "Description": "WinRAR 1.50+"
-      },
-      {
-        "Type": "Magic",
-        "Pattern": "52 61 72 21 1A 07 01 00",
-        "Description": "WinRAR 5.0+"
-      }
-    ],
-    "Extensions": [ ".rar" ]
-  },
-  {
     "Name": "RNC Compressed Archive",
     "Category": "Archive",
     "Signatures": [
@@ -211,21 +117,6 @@
       }
     ],
     "Extensions": []
-  },
-  {
-    "Name": "Tarball Archive",
-    "Category": "Archive",
-    "Signatures": [
-      {
-        "Type": "Magic",
-        "Pattern": "75 73 74 61 72 00 30 30"
-      },
-      {
-        "Type": "Magic",
-        "Pattern": "75 73 74 61 72 20 20 00"
-      }
-    ],
-    "Extensions": [ ".tar" ]
   },
   {
     "Name": "VMDK Virtual Machine Disk",
@@ -259,27 +150,6 @@
       }
     ],
     "Extensions": [ ".xz", ".tar.xz" ]
-  },
-  {
-    "Name": "Zip Compressed Archive",
-    "Category": "Archive",
-    "Signatures": [
-      {
-        "Type": "Magic",
-        "Pattern": "50 4B 03 04"
-      },
-      {
-        "Type": "Magic",
-        "Pattern": "50 4B 05 06",
-        "Description": "Empty Archive"
-      },
-      {
-        "Type": "Magic",
-        "Pattern": "50 4B 07 08",
-        "Description": "Spanned Archive"
-      }
-    ],
-    "Extensions": [ ".zip" ]
   },
   {
     "Name": "Zlib Compressed Archive",
