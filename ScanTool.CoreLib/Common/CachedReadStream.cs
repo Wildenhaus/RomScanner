@@ -43,6 +43,11 @@ namespace ScanTool.CoreLib
 
     #region Constructor
 
+    public CachedReadStream( Stream sourceStream, long length = -1 )
+      : this( sourceStream, new MemoryStream(), length )
+    {
+    }
+
     public CachedReadStream( Stream sourceStream, Stream cacheStream, long length = -1 )
     {
       _sourceStream = sourceStream;
