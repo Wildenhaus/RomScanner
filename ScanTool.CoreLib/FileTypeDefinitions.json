@@ -1,0 +1,650 @@
+﻿[
+  /****************************************************************************
+   **==============================[ Archives ]==============================**
+   ****************************************************************************/
+  {
+    "Name": "7-zip Compressed Archive",
+    "Category": "Archive",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "37 7A BC AF 27 1C"
+      }
+    ],
+    "Extensions": [ ".7z" ]
+  },
+  {
+    "Name": "Amiga Backup Archive",
+    "Category": "Archive",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "42 41 43 4B 4D 49 4B 45"
+      }
+    ],
+    "Extensions": [ ".bac" ]
+  },
+  {
+    "Name": "Apple Disk Image (DMG)",
+    "Category": "Archive",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "78 01 73 0D 62 62 60"
+      }
+    ],
+    "Extensions": [ ".dmg" ]
+  },
+  {
+    "Name": "Bzip2 Compressed Archive",
+    "Category": "Archive",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "42 5A 68"
+      }
+    ],
+    "Extensions": [ ".bz2" ]
+  },
+  {
+    "Name": "Microsoft Cabinet File",
+    "Category": "Archive",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "4D 53 43 46"
+      }
+    ],
+    "Extensions": [ ".cab" ]
+  },
+  {
+    "Name": "Debian Linux Package",
+    "Category": "Archive",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "21 3C 61 72 63 68 3E"
+      }
+    ],
+    "Extensions": [ ".deb" ]
+  },
+  {
+    "Name": "Gzip Compressed Archive",
+    "Category": "Archive",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "1F 8B"
+      }
+    ],
+    "Extensions": [ ".gz", ".tar.gz" ]
+  },
+  {
+    "Name": "ISO9660 CD/DVD Image",
+    "Category": "Archive",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "43 44 30 30 31"
+      }
+    ],
+    "Extensions": [ ".iso" ]
+  },
+  {
+    "Name": "LZ4 Compressed Archive",
+    "Category": "Archive",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "04 22 4D 18"
+      }
+    ],
+    "Extensions": [ ".lz4" ]
+  },
+  {
+    "Name": "LZFSE Compressed Archive",
+    "Category": "Archive",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "62 76 78 32"
+      }
+    ],
+    "Extensions": [ ".lzfse" ]
+  },
+  {
+    "Name": "LZH Compressed Archive",
+    "Category": "Archive",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "1F A0"
+      }
+    ],
+    "Extensions": [ ".lzh", ".z", ".tar.z" ]
+  },
+  {
+    "Name": "LZip Compressed Archive",
+    "Category": "Archive",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "4C 5A 49 50"
+      }
+    ],
+    "Extensions": [ ".lz" ]
+  },
+  {
+    "Name": "LZW Compressed Archive",
+    "Category": "Archive",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "1F 9D"
+      }
+    ],
+    "Extensions": [ ".lzw", ".z", ".tar.z" ]
+  },
+  {
+    "Name": "Microsoft Quantum Compressed Archive",
+    "Category": "Archive",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "53 5A 44 44 88 F0 27 33"
+      }
+    ],
+    "Extensions": []
+  },
+  {
+    "Name": "Microsoft Tape Format",
+    "Category": "Archive",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "54 41 50 45"
+      }
+    ],
+    "Extensions": []
+  },
+  {
+    "Name": "OAR Compressed Archive",
+    "Category": "Archive",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "4F 41 52"
+      }
+    ],
+    "Extensions": [ ".oar" ]
+  },
+  {
+    "Name": "WinRAR Compressed Archive",
+    "Category": "Archive",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "52 61 72 21 1A 07 00",
+        "Description": "WinRAR 1.50+"
+      },
+      {
+        "Type": "Magic",
+        "Pattern": "52 61 72 21 1A 07 01 00",
+        "Description": "WinRAR 5.0+"
+      }
+    ],
+    "Extensions": [ ".rar" ]
+  },
+  {
+    "Name": "RNC Compressed Archive",
+    "Category": "Archive",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "52 4E 43 01",
+        "Description": "RNC1"
+      },
+      {
+        "Type": "Magic",
+        "Pattern": "52 4E 43 02",
+        "Description": "RNC2"
+      }
+    ],
+    "Extensions": []
+  },
+  {
+    "Name": "Tarball Archive",
+    "Category": "Archive",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "75 73 74 61 72 00 30 30"
+      },
+      {
+        "Type": "Magic",
+        "Pattern": "75 73 74 61 72 20 20 00"
+      }
+    ],
+    "Extensions": [ ".tar" ]
+  },
+  {
+    "Name": "VMDK Virtual Machine Disk",
+    "Category": "Archive",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "4B 44 4D"
+      }
+    ],
+    "Extensions": [ ".vmdk" ]
+  },
+  {
+    "Name": "eXtensible ARchive Format (XAR)",
+    "Category": "Archive",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "78 61 72 21"
+      }
+    ],
+    "Extensions": [ ".xar" ]
+  },
+  {
+    "Name": "XZ LZMA2 Compressed Archive",
+    "Category": "Archive",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "FD 37 7A 58 5A 00"
+      }
+    ],
+    "Extensions": [ ".xz", ".tar.xz" ]
+  },
+  {
+    "Name": "Zip Compressed Archive",
+    "Category": "Archive",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "50 4B 03 04"
+      },
+      {
+        "Type": "Magic",
+        "Pattern": "50 4B 05 06",
+        "Description": "Empty Archive"
+      },
+      {
+        "Type": "Magic",
+        "Pattern": "50 4B 07 08",
+        "Description": "Spanned Archive"
+      }
+    ],
+    "Extensions": [ ".zip" ]
+  },
+  {
+    "Name": "Zlib Compressed Archive",
+    "Category": "Archive",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "78 01",
+        "Description": "No Compression (no preset dictionary)"
+      },
+      {
+        "Type": "Magic",
+        "Pattern": "78 5E",
+        "Description": "Best speed (no preset dictionary)"
+      },
+      {
+        "Type": "Magic",
+        "Pattern": "78 9C",
+        "Description": "Default Compression (no preset dictionary)"
+      },
+      {
+        "Type": "Magic",
+        "Pattern": "78 DA",
+        "Description": "Best Compression (no preset dictionary)"
+      },
+      {
+        "Type": "Magic",
+        "Pattern": "78 20",
+        "Description": "No Compression (with preset dictionary)"
+      },
+      {
+        "Type": "Magic",
+        "Pattern": "78 7D",
+        "Description": "Best speed (with preset dictionary)"
+      },
+      {
+        "Type": "Magic",
+        "Pattern": "78 BB",
+        "Description": "Default Compression (with preset dictionary)"
+      },
+      {
+        "Type": "Magic",
+        "Pattern": "78 F9",
+        "Description": "Best Compression (with preset dictionary)"
+      }
+    ],
+    "Extensions": [ ".zlib" ]
+  },
+  {
+    "Name": "Zstandard Compressed File",
+    "Category": "Archive",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "28 B5 2F FD"
+      }
+    ],
+    "Extensions": [ ".zst" ]
+  },
+
+  /****************************************************************************
+   **=============================[ Documents ]==============================**
+   ****************************************************************************/
+  {
+    "Name": "CHM HelpFile",
+    "Category": "Document",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "49 54 53 46 03 00 00 00 60 00 00 00"
+      }
+    ],
+    "Extensions": [ ".chm" ]
+  },
+  {
+    "Name": "Microsoft Office Document",
+    "Category": "Document",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "D0 CF 11 E0 A1 B1 1A E1"
+      }
+    ],
+    "Extensions": [ ".doc", ".xls", ".ppt", ".msg" ]
+  },
+  {
+    "Name": "PDF",
+    "Category": "Document",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "25 50 44 46 2D"
+      }
+    ],
+    "Extensions": [ ".pdf" ]
+  },
+
+  /****************************************************************************
+   **=============================[ Developer ]==============================**
+   ****************************************************************************/
+  {
+    "Name": "C/C++ Code File",
+    "Category": "Developer",
+    "Extensions": [ ".c", ".cc", ".cpp", ".h", ".hpp" ]
+  },
+  {
+    "Name": "Debug Symbol Database",
+    "Category": "Developer",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "4D 69 63 72 6F 73 6F 66 74 20 43"
+      }
+    ],
+    "Extensions": [ ".pdb", ".xdb" ]
+  },
+  {
+    "Name": "Java Class",
+    "Category": "Developer",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "CA FE BA BE"
+      }
+    ],
+    "Extensions": [ ".class" ]
+  },
+  {
+    "Name": "Java KeyStore",
+    "Category": "Developer",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "FE ED FE ED"
+      }
+    ],
+    "Extensions": []
+  },
+  {
+    "Name": "Linker Map",
+    "Category": "Developer",
+    "Signatures": [
+      {
+        "Type": "Content",
+        "Pattern": "23 20 4C 69 6E 6B 20 6D 61 70 20 6F 66",
+        "Description": "# Link map of"
+      },
+      {
+        "Type": "Content",
+        "Pattern": "41 72 63 68 69 76 65 20 6D 65 6D 62 65 72 20 69 6E 63 6C 75 64 65 64",
+        "Description": "Archive member included"
+      },
+      {
+        "Type": "Content",
+        "Pattern": "41 64 64 72 65 73 73 20 20 53 69 7A 65 20 20 20 20 20 41 6C 69 67 6E 20 4F 75 74",
+        "Description": "Address  Size     Align Out"
+      },
+      {
+        "Type": "Content",
+        "Pattern": "54 69 6D 65 73 74 61 6D 70 20 69 73 20 ?? ?? ?? ?? ?? ?? ?? ?? 20 28",
+        "Description": "Xbox 360: Timestamp is"
+      }
+    ],
+    "Extensions": [ ".map" ]
+  },
+  {
+    "Name": "PGP File",
+    "Category": "Developer",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "85 ?? ?? 03"
+      }
+    ],
+    "Extensions": [ ".pgp" ]
+  },
+  {
+    "Name": "PlayStation 2 Master Disc",
+    "Category": "Developer",
+    "Signatures": [
+      {
+        "Type": "Content",
+        "Pattern": "32 30 ?? ?? ?? ?? ?? ?? 50 6C 61 79 53 74 61 74 69 6F 6E 20 4D 61 73 74 65 72 20 44 69 73 63 20 32",
+        "Description": "Year 2000-2009"
+      },
+      {
+        "Type": "Content",
+        "Pattern": "31 39 ?? ?? ?? ?? ?? ?? 50 6C 61 79 53 74 61 74 69 6F 6E 20 4D 61 73 74 65 72 20 44 69 73 63 20 32",
+        "Description": "Year 1990-1999"
+      }
+    ]
+  },
+  {
+    "Name": "PostScript",
+    "Category": "Developer",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "25 21 50 53"
+      }
+    ],
+    "Extensions": [ ".ps" ]
+  },
+  {
+    "Name": "X.509 Cert (DER)",
+    "Category": "Developer",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "30 82"
+      }
+    ],
+    "Extensions": [ ".der" ]
+  },
+
+  /****************************************************************************
+   **============================[ Executables ]=============================**
+   ****************************************************************************/
+  {
+    "Name": "Dalvik Executable",
+    "Category": "Executable",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "64 65 78 0A 30 33 35 00"
+      }
+    ],
+    "Extensions": [ ".dex" ]
+  },
+  {
+    "Name": "DOS MZ Executable",
+    "Category": "Executable",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "4D 5A"
+      }
+    ],
+    "Extensions": [ ".exe", ".dll" ]
+  },
+  {
+    "Name": "DOS ZM Executable (Rare)",
+    "Category": "Executable",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "5A 4D"
+      }
+    ],
+    "Extensions": [ ".exe" ]
+  },
+  {
+    "Name": "ELF Executable",
+    "Category": "Executable",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "7F 45 4C 46"
+      }
+    ],
+    "Extensions": [ ".elf" ]
+  },
+  {
+    "Name": "NES ROM File",
+    "Category": "Executable",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "4E 45 53 1A"
+      }
+    ],
+    "Extensions": [ ".nes" ]
+  },
+  {
+    "Name": "Xbox 360 Executable (v1)",
+    "Category": "Executable",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "58 45 58 31"
+      }
+    ],
+    "Extensions": [ ".xex" ]
+  },
+  {
+    "Name": "Xbox 360 Executable (v2)",
+    "Category": "Executable",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "58 45 58 32"
+      }
+    ],
+    "Extensions": [ ".xex" ]
+  },
+
+  /****************************************************************************
+   **===============================[ Media ]================================**
+   ****************************************************************************/
+  {
+    "Name": "Canon Raw 2",
+    "Category": "Media",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "49 49 2A 00 10 00 00 00 43 52"
+      }
+    ],
+    "Extensions": [ ".cr2" ]
+  },
+  {
+    "Name": "Cineon",
+    "Category": "Media",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "80 2A 5F D7"
+      }
+    ],
+    "Extensions": [ ".cin" ]
+  },
+  {
+    "Name": "DPX Image",
+    "Category": "Media",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "53 44 50 58",
+        "Description": "Big-endian"
+      },
+      {
+        "Type": "Magic",
+        "Pattern": "58 50 44 53",
+        "Description": "Little-endian"
+      }
+    ],
+    "Extensions": [ ".dpx" ]
+  },
+  {
+    "Name": "GIF Image",
+    "Category": "Media",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "47 49 46 38 37 61",
+        "Description": "GIF-87a"
+      },
+      {
+        "Type": "Magic",
+        "Pattern": "47 49 46 38 39 61",
+        "Description": "GIF-89a"
+      }
+    ],
+    "Extensions": [ ".gif" ]
+  },
+  {
+    "Name": "Photoshop",
+    "Category": "Media",
+    "Signatures": [
+      {
+        "Type": "Magic",
+        "Pattern": "38 42 50 53"
+      }
+    ],
+    "Extensions": [ ".psd" ]
+  }
+
+]

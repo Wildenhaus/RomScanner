@@ -13,6 +13,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="FileTypeDefinitions.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="FileTypeDefinitions.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="PatternFinder" Version="1.0.0" />
     <PackageReference Include="Quamotion.DiscUtils.Iso9660" Version="0.15.4" />
     <PackageReference Include="SharpCompress" Version="0.25.1" />
