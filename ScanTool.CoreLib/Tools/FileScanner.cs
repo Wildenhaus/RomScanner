@@ -123,9 +123,9 @@ namespace ScanTool.CoreLib.Tools
     {
       fileStream.Seek( 0, SeekOrigin.Begin );
 
-      var alloc = stackalloc byte[ _longestMagicSignatureLength ];
-      var buffer = new Span<byte>( alloc, _longestMagicSignatureLength );
-      var bytesRead = fileStream.Read( buffer );
+      var alloc = new byte[ _longestMagicSignatureLength ];
+      var bytesRead = fileStream.Read( alloc );
+      var buffer = new Memory<byte>( alloc, 0, Math.Min( bytesRead, _longestMagicSignatureLength ) );
 
       var matches = SignatureScanner.Scan( _fileMagicSignatures, buffer.Slice( 0, bytesRead ) );
       foreach( var match in matches )

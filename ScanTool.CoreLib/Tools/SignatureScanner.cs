@@ -80,17 +80,17 @@ namespace ScanTool.CoreLib.Tools
     }
 
     [MethodImpl( MethodImplOptions.AggressiveInlining )]
-    public static SignatureMatch[] Scan( IEnumerable<Signature> signatures, Span<byte> buffer )
+    public static SignatureMatch[] Scan( IEnumerable<Signature> signatures, Memory<byte> buffer )
     {
-      var matches = new List<SignatureMatch>();
+      var matches = new ConcurrentBag<SignatureMatch>();
 
       var sigs = signatures.ToArray();
-      foreach( var sig in sigs )
+      Parallel.ForEach( sigs, sig =>
       {
-        var matchOffset = Match( sig, buffer );
+        var matchOffset = Match( sig, buffer.Span );
         if( matchOffset != NOT_FOUND )
           matches.Add( new SignatureMatch( sig, matchOffset ) );
-      }
+      } );
 
       return matches.ToArray();
     }
@@ -98,7 +98,7 @@ namespace ScanTool.CoreLib.Tools
     [MethodImpl( MethodImplOptions.AggressiveInlining )]
     public static IEnumerable<SignatureMatch> Scan( IEnumerable<Signature> signatures, Stream stream )
     {
-      var matches = new List<SignatureMatch>();
+      var matches = new ConcurrentBag<SignatureMatch>();
 
       var sigs = signatures.ToArray();
       var buffer = ArrayPool<byte>.Shared.Rent( BUFFER_SIZE );
@@ -109,13 +109,13 @@ namespace ScanTool.CoreLib.Tools
         if( bytesRead <= 0 )
           break;
 
-        var span = buffer.AsSpan( 0, bytesRead );
-        foreach( var sig in sigs )
+        Parallel.ForEach( sigs, sig =>
         {
+          var span = buffer.AsSpan( 0, bytesRead );
           var matchOffset = Match( sig, span );
           if( matchOffset != NOT_FOUND )
             matches.Add( new SignatureMatch( sig, matchOffset ) );
-        }
+        } );
       }
 
       ArrayPool<byte>.Shared.Return( buffer, true );
