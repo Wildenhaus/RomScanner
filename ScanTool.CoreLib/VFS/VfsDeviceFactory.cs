@@ -25,11 +25,7 @@ namespace ScanTool.CoreLib.VFS
       else if ( fileType == FileType.Zip )
         device = new ZipArchiveDevice( stream );
 
-      if( device == null )
-        return false;
-
-      device.Initialize();
-      return true;
+      return device != null;
     }
 
   }

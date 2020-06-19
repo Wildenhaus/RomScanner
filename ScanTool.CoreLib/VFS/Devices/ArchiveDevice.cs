@@ -140,7 +140,7 @@ namespace ScanTool.CoreLib.VFS.Devices
       #region Overrides
 
       public override Stream GetStream()
-        => _entry.OpenEntryStream();
+        => new CachedReadStream( _entry.OpenEntryStream(), _entry.Size );
 
       #endregion
 
