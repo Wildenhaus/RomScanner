@@ -32,9 +32,9 @@ namespace ScanTool.CoreLib.VFS
     public IEnumerable<VfsEntry> Children => _children.Values;
 
     public FileAttributes Attributes { get; protected set; }
-    public DateTime? CreationTime { get; protected set; }
-    public DateTime? LastAccessTime { get; protected set; }
-    public DateTime? LastModifiedTime { get; protected set; }
+    public DateTime? DateAccessed { get; protected set; }
+    public DateTime? DateCreated { get; protected set; }
+    public DateTime? DateModified { get; protected set; }
 
     #endregion
 
@@ -50,7 +50,7 @@ namespace ScanTool.CoreLib.VFS
 
       if( parent != null )
       {
-        _path = System.IO.Path.Combine( parent._path, _name );
+        _path = Path.Combine( parent._path, _name );
         parent.AddChild( this );
       }
       else
